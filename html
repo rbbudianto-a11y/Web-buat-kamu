@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk pacarku tercintaa kak pikaa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;500&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #fdfcfb, #f8d7da);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .dancing-font {
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .heart {
+            position: relative;
+            width: 100px;
+            height: 90px;
+            margin: 20px auto;
+            transition: transform 0.3s ease;
+        }
+        
+        .heart:before, .heart:after {
+            content: "";
+            position: absolute;
+            left: 50px;
+            top: 0;
+            width: 50px;
+            height: 80px;
+            background: #ff4d6d;
+            border-radius: 50px 50px 0 0;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+        
+        .heart:after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+        
+        .heart:hover {
+            transform: scale(1.1);
+        }
+        
+        .love-letter {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(255, 105, 180, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .love-letter:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 36px rgba(255, 105, 180, 0.3);
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .btn-romantic {
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-romantic:hover {
+            background: linear-gradient(to right, #ff7eb3, #ff758c);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
+        }
+        
+        .message-box {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .fade-in {
+            display: block;
+            opacity: 1;
+        }
+        
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .falling-heart {
+            position: absolute;
+            top: -50px;
+            color: #ff4d6d;
+            animation: fall linear forwards;
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <!-- Falling Hearts Background -->
+    <div class="hearts-container" id="hearts-container"></div>
+
+    <div class="container mx-auto px-4 py-10 max-w-3xl">
+        <!-- Header -->
+        <header class="text-center py-8">
+            <div class="heart mb-4"></div>
+            <h1 class="dancing-font text-4xl md:text-5xl font-bold text-pink-600">Untuk Kamu yang Spesial</h1>
+            <p class="mt-2 text-lg text-pink-500">Dari aku yang selalu menghawatirkan kamu</p>
+        </header>
+
+        <!-- Love Letter -->
+        <div class="love-letter p-6 md:p-8 mb-8">
+            <h2 class="dancing-font text-3xl text-pink-600 mb-4">My Dearest,</h2>
+            <p class="mb-4 leading-relaxed">
+                Bertemu denganmu itu keinginanku sejak kemarin-kemarin. Aku juga bersyukurr bisa vc ataupun hanya sekedar chatting an.
+            </p>
+            <p class="mb-4 leading-relaxed">
+                Aku mungkin sering buat salah, tapi satu hal yang pasti: perasaanku padamu selalu tulus dan abadi. maaff atas semua perbuatanku yang selalu menyakitimu sayangg.
+            </p>
+            <p class="leading-relaxed">
+                Dengan penuh cinta,
+                <br>
+                <span class="dancing-font text-2xl text-pink-600">- Yang selalu mencintaimu</span>
+            </p>
+        </div>
+        <!-- Special Message -->
+        <div class="text-center mb-8">
+            <button onclick="showMessage()" class="btn-romantic text-white font-medium py-3 px-6 rounded-full inline-flex items-center">
+                <i class="fas fa-heart mr-2"></i> Klik untuk Pesan Spesial
+            </button>
+            
+            <div id="specialMessage" class="message-box mt-6 p-6 bg-pink-50 rounded-lg border border-pink-200">
+                <h3 class="dancing-font text-2xl text-pink-600 mb-3">i love youu</h3>
+                <p>Tiada hari yang berlalu tanpa aku memikirkanmu. Kamu adalah bagian terindah dalam hidupku sayangg.</p>
+            </div>
+        </div>
+
+        <!-- Memory Timeline -->
+        <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+            <h3 class="text-xl font-semibold text-pink-600 mb-6 text-center">PERTAMA KALI BONCENG KAMUU</h3>
+            <div class="space-y-4">
+                <div class="flex">
+                    <div class="flex flex-col items-center mr-4">
+                        <div class="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center text-white">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="w-1 h-full bg-pink-200"></div>
+                    </div>
+                    <div class="pb-6">
+                        <p class="font-semibold text-pink-600">Pertama Kali Bertemu</p>
+                        <p class="text-gray-600">Hari itu adalah hari terindah dalam hidupku, karena baru pertama kali jugaa aku membonceng seseorang cewee</p>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="flex flex-col items-center mr-4">
+                        <div class="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center text-white">
+                            <i class="fas fa-glass-cheers"></i>
+                        </div>
+                        <div class="w-1 h-full bg-pink-200"></div>
+                    </div>
+                    <div class="pb-6">
+                        <p class="font-semibold text-pink-600">Kencan Pertama ke malang</p>
+                        <p class="text-gray-600">wkwkw jujurr Aku grogi ditambah sangat senang, baper juga.</p>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="flex flex-col items-center mr-4">
+                        <div class="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center text-white">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-pink-600">diperjalanan berdua</p>
+                        <p class="text-gray-600">keinget waktu ban bocor, samean pegangan ke aku waokaowkak</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center py-6 text-pink-500">
+            <p>Dibuat dengan <i class="fas fa-heart text-pink-600"></i> untuk kamu</p>
+            <p class="mt-2 text-sm">© 2023 - Forever</p>
+        </footer>
+    </div>
+
+    <script>
+        // Falling hearts animation
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('falling-heart');
+            heart.innerHTML = '<i class="fas fa-heart"></i>';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            document.getElementById('hearts-container').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+        }
+        
+        // Create hearts periodically
+        setInterval(createHeart, 300);
+        
+        // Show special message
+        function showMessage() {
+            document.getElementById('specialMessage').classList.add('fade-in');
+        }
+        
+        // Calculate time together (example: since January 1, 2023)
+        function updateTimeTogether() {
+            const startDate = new Date('2023-01-01');
+            const currentDate = new Date();
+            
+            let diff = currentDate - startDate;
+            
+            const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+            diff -= years * (1000 * 60 * 60 * 24 * 365);
+            
+            const months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30));
+            diff -= months * (1000 * 60 * 60 * 24 * 30);
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            diff -= days * (1000 * 60 * 60 * 24);
+            
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            
+            document.getElementById('years').textContent = years;
+            document.getElementById('months').textContent = months;
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+        }
+        
+        // Initialize
+        updateTimeTogether();
+        setInterval(updateTimeTogether, 3600000); // Update every hour
+    </script>
+</body>
+</html>
